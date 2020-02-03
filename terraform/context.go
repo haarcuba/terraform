@@ -163,6 +163,7 @@ func NewContext(opts *ContextOpts) (*Context, tfdiags.Diagnostics) {
 	if opts.ProviderResolver != nil {
 		deps := ConfigTreeDependencies(opts.Config, state)
 		reqd := deps.AllPluginRequirements()
+
 		if opts.ProviderSHA256s != nil && !opts.SkipProviderVerify {
 			reqd.LockExecutables(opts.ProviderSHA256s)
 		}
